@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FitVision AI - Transform your body with AI-powered fitness">
+    <title>FitVision AI | Your AI Personal Trainer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <div class="bg-gradient"></div>
+    <div class="bg-grid"></div>
+    <div class="floating-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon"><i data-lucide="zap"></i></div>
+                <span class="logo-text">FitVision<span class="logo-ai">AI</span></span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#home" class="nav-link active" data-section="home"><i
+                        data-lucide="home"></i><span>Home</span></a>
+                <a href="#simulator" class="nav-link" data-section="simulator"><i data-lucide="sparkles"></i><span>AI
+                        Simulator</span></a>
+                <a href="#workouts" class="nav-link" data-section="workouts"><i
+                        data-lucide="dumbbell"></i><span>Workouts</span></a>
+                <a href="#equipment" class="nav-link" data-section="equipment"><i
+                        data-lucide="shopping-bag"></i><span>Equipment</span></a>
+                <a href="#schedule" class="nav-link" data-section="schedule"><i
+                        data-lucide="calendar"></i><span>Schedule</span></a>
+                <a href="#nutrition" class="nav-link" data-section="nutrition"><i
+                        data-lucide="apple"></i><span>Nutrition</span></a>
+            </div>
+            <div class="nav-actions">
+                <button class="btn-icon" id="themeToggle"><i data-lucide="moon"></i></button>
+                <button class="btn-primary" id="getStartedBtn">Get Started<i data-lucide="arrow-right"></i></button>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><i data-lucide="menu"></i></button>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section id="home" class="section hero-section active">
+            <div class="hero-content">
+                <div class="hero-badge"><i data-lucide="sparkles"></i><span>AI-Powered Transformation</span></div>
+                <h1 class="hero-title">Transform Your Body<span class="gradient-text">With AI</span></h1>
+                <p class="hero-subtitle">Experience the future of fitness. Our AI creates personalized workouts and
+                    shows you exactly how you'll look after your transformation.</p>
+                <div class="hero-cta">
+                    <button class="btn-primary btn-large" id="trySimulatorBtn"><i data-lucide="sparkles"></i>Try Body
+                        Simulator</button>
+                    <button class="btn-secondary btn-large" id="exploreWorkoutsBtn"><i data-lucide="play"></i>Explore
+                        Workouts</button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item"><span class="stat-number" data-count="50000">0</span><span
+                            class="stat-label">Transformations</span></div>
+                    <div class="stat-item"><span class="stat-number" data-count="500">0</span><span
+                            class="stat-label">Workout Plans</span></div>
+                    <div class="stat-item"><span class="stat-number" data-count="98">0</span><span class="stat-label">%
+                            Satisfaction</span></div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card-stack">
+                    <div class="hero-card card-1">
+                        <div class="card-header"><i data-lucide="flame"></i><span>Daily Burn</span></div>
+                        <div class="card-value">2,450</div>
+                        <div class="card-unit">calories</div>
+                    </div>
+                    <div class="hero-card card-2">
+                        <div class="card-header"><i data-lucide="target"></i><span>Goals</span></div>
+                        <div class="card-value">5/7</div>
+                        <div class="card-unit">completed</div>
+                    </div>
+                    <div class="hero-card card-3">
+                        <div class="transformation-preview">
+                            <div class="preview-label">Before → After</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="simulator" class="section simulator-section">
+            <div class="section-header">
+                <div class="section-badge"><i data-lucide="wand-2"></i><span>AI Technology</span></div>
+                <h2 class="section-title">Body Transformation <span class="gradient-text">Simulator</span></h2>
+                <p class="section-subtitle">Upload your photo and see your future self with AI.</p>
+            </div>
+            <div class="simulator-container">
+                <div class="simulator-upload glass-card">
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-icon"><i data-lucide="upload-cloud"></i></div>
+                        <h3>Upload Your Photo</h3>
+                        <p>Drag & drop or click to upload</p>
+                        <input type="file" id="photoInput" accept="image/*" hidden>
+                    </div>
+                    <div class="uploaded-preview" id="uploadedPreview" style="display:none;">
+                        <img id="previewImage" src="" alt="Preview">
+                        <button class="btn-icon remove-btn" id="removePhoto"><i data-lucide="x"></i></button>
+                    </div>
+                </div>
+                <div class="simulator-controls glass-card">
+                    <h3>Transformation Goals</h3>
+                    <div class="control-group">
+                        <label>Goal Type</label>
+                        <div class="goal-options">
+                            <button class="goal-btn active" data-goal="weight-loss"><i
+                                    data-lucide="trending-down"></i><span>Weight Loss</span></button>
+                            <button class="goal-btn" data-goal="muscle-gain"><i
+                                    data-lucide="trending-up"></i><span>Muscle Gain</span></button>
+                            <button class="goal-btn" data-goal="toning"><i
+                                    data-lucide="activity"></i><span>Toning</span></button>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label>Timeline: <span id="timelineValue">6</span> months</label>
+                        <input type="range" id="timelineSlider" min="1" max="12" value="6" class="slider">
+                    </div>
+                    <div class="control-group">
+                        <label>Intensity</label>
+                        <div class="intensity-options">
+                            <button class="intensity-btn" data-intensity="light">Light</button>
+                            <button class="intensity-btn active" data-intensity="moderate">Moderate</button>
+                            <button class="intensity-btn" data-intensity="intense">Intense</button>
+                        </div>
+                    </div>
+                    <button class="btn-primary btn-full" id="generateBtn"><i data-lucide="sparkles"></i>Generate
+                        Transformation</button>
+                </div>
+                <div class="simulator-result glass-card">
+                    <div class="result-placeholder" id="resultPlaceholder">
+                        <div class="placeholder-icon"><i data-lucide="image"></i></div>
+                        <p>Your transformation will appear here</p>
+                    </div>
+                    <div class="result-content" id="resultContent" style="display:none;"></div>
+                    <div class="loading-state" id="loadingState" style="display:none;">
+                        <div class="loading-spinner"></div>
+                        <p>AI is generating your transformation...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="workouts" class="section workouts-section">
+            <div class="section-header">
+                <div class="section-badge"><i data-lucide="dumbbell"></i><span>AI-Generated</span></div>
+                <h2 class="section-title">Personalized <span class="gradient-text">Workouts</span></h2>
+                <p class="section-subtitle">Customized workout plans crafted by AI for your goals.</p>
+            </div>
+            <div class="workout-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="strength">Strength</button>
+                <button class="filter-btn" data-filter="cardio">Cardio</button>
+                <button class="filter-btn" data-filter="flexibility">Flexibility</button>
+                <button class="filter-btn" data-filter="hiit">HIIT</button>
+            </div>
+            <div class="workout-grid" id="workoutGrid"></div>
+        </section>
+
+        <section id="equipment" class="section equipment-section">
+            <div class="section-header">
+                <div class="section-badge"><i data-lucide="shopping-bag"></i><span>Smart</span></div>
+                <h2 class="section-title">Fitness <span class="gradient-text">Equipment</span></h2>
+                <p class="section-subtitle">AI-curated equipment for your home gym.</p>
+            </div>
+            <div class="equipment-categories">
+                <button class="category-btn active" data-category="all"><i data-lucide="grid-3x3"></i>All</button>
+                <button class="category-btn" data-category="weights"><i data-lucide="circle-dot"></i>Weights</button>
+                <button class="category-btn" data-category="machines"><i data-lucide="settings"></i>Machines</button>
+                <button class="category-btn" data-category="accessories"><i data-lucide="box"></i>Accessories</button>
+            </div>
+            <div class="equipment-grid" id="equipmentGrid"></div>
+        </section>
+
+        <section id="nutrition" class="section nutrition-section">
+            <div class="section-header">
+                <div class="section-badge"><i data-lucide="apple"></i><span>Fuel Your Body</span></div>
+                <h2 class="section-title">Life-Changing <span class="gradient-text">Nutrition</span></h2>
+                <p class="section-subtitle">Transform your body from the inside out with science-backed diet plans.</p>
+            </div>
+            <div class="nutrition-tabs">
+                <button class="nutrition-tab active" data-plan="weight-loss">🔥 Fat Loss</button>
+                <button class="nutrition-tab" data-plan="muscle-gain">💪 Muscle Gain</button>
+                <button class="nutrition-tab" data-plan="toning">✨ Lean & Tone</button>
+            </div>
+            <div class="nutrition-content" id="nutritionContent">
+                <!-- Content dynamically loaded -->
+            </div>
+            <div class="nutrition-tips glass-card">
+                <h3>🌟 Universal Health Tips</h3>
+                <div class="tips-grid">
+                    <div class="tip-card"><span class="tip-icon">💧</span>
+                        <h4>Hydration</h4>
+                        <p>Drink 3+ liters of water daily</p>
+                    </div>
+                    <div class="tip-card"><span class="tip-icon">😴</span>
+                        <h4>Sleep</h4>
+                        <p>Get 7-9 hours quality sleep</p>
+                    </div>
+                    <div class="tip-card"><span class="tip-icon">🥗</span>
+                        <h4>Whole Foods</h4>
+                        <p>80% unprocessed, natural foods</p>
+                    </div>
+                    <div class="tip-card"><span class="tip-icon">⏰</span>
+                        <h4>Consistency</h4>
+                        <p>Meal timing matters for results</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="schedule" class="section schedule-section">
+            <div class="section-header">
+                <div class="section-badge"><i data-lucide="calendar"></i><span>Smart</span></div>
+                <h2 class="section-title">AI <span class="gradient-text">Scheduler</span></h2>
+                <p class="section-subtitle">Intelligent workout scheduling that adapts to your life.</p>
+            </div>
+            <div class="schedule-container">
+                <div class="calendar-card glass-card">
+                    <div class="calendar-header">
+                        <button class="calendar-nav" id="prevMonth"><i data-lucide="chevron-left"></i></button>
+                        <h3 id="currentMonth">December 2025</h3>
+                        <button class="calendar-nav" id="nextMonth"><i data-lucide="chevron-right"></i></button>
+                    </div>
+                    <div class="calendar-weekdays">
+                        <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                    </div>
+                    <div class="calendar-days" id="calendarDays"></div>
+                </div>
+                <div class="today-workout glass-card">
+                    <h3>Today's Workout</h3>
+                    <div class="workout-type"><i data-lucide="dumbbell"></i><span>Upper Body Strength</span></div>
+                    <div class="exercise-list">
+                        <div class="exercise-item"><span>Bench Press</span><span>4×12</span></div>
+                        <div class="exercise-item"><span>Shoulder Press</span><span>3×10</span></div>
+                        <div class="exercise-item"><span>Bicep Curls</span><span>3×12</span></div>
+                    </div>
+                    <button class="btn-primary btn-full" id="startWorkoutBtn"><i data-lucide="play"></i>Start
+                        Workout</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal" id="workoutModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content glass-card">
+            <button class="modal-close" id="closeModal"><i data-lucide="x"></i></button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+    <div class="toast-container" id="toastContainer"></div>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
