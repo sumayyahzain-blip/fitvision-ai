@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { MantineProvider } from '@mantine/core'
 import { Notifications } from '@mantine/notifications'
-import { BrowserRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 import App from './App'
 import { AuthProvider } from './context/AuthContext'
 import { theme } from './theme'
@@ -14,13 +14,13 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <BrowserRouter>
+        <HashRouter>
             <MantineProvider theme={theme} defaultColorScheme="dark">
                 <AuthProvider>
                     <Notifications position="top-right" />
                     <App />
                 </AuthProvider>
             </MantineProvider>
-        </BrowserRouter>
+        </HashRouter>
     </React.StrictMode>
 )
